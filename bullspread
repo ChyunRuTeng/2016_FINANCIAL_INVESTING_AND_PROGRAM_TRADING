@@ -1,0 +1,19 @@
+import numpy as np
+K=9200
+K1=9100
+K2=9300
+premium_call_1=179
+premium_call_2=159
+interval=500
+ST=np.arange(K-interval,K+interval)
+
+payoff_longcall_1=np.maximum(ST-K1,0)-premium_call_1
+payoff_longcall_2=np.maximum(ST-K2,0)-premium_call_2
+payoff_shortcall_2=-payoff_longcall_2
+
+pay0ff_bullspread=payoff_longcall_1+payoff_shortcall_2
+
+import matplotlib.pyplot as plt
+longput=plt.plot(ST, pay0ff_bullspread)
+
+plt.show()
