@@ -1,0 +1,14 @@
+import numpy as np
+K=9100
+premium_call=179
+premium_put=185
+interval=500
+ST=np.arange(K-interval,K+interval)
+payoff_longput=np.maximum(K-ST,0)-premium_put
+payoff_shortput=-payoff_longput
+
+import matplotlib.pyplot as plt
+longput=plt.plot(ST, payoff_longput)
+shortput=plt.plot(ST, payoff_shortput)
+
+plt.show()
